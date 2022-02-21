@@ -33,9 +33,6 @@ class ViewController: UIViewController {
         myView.translatesAutoresizingMaskIntoConstraints = false
         
         myView.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 100).isActive = true
-//        myView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-//        myView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 110).isActive = true
-//        myView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -110).isActive = true
         myView.topAnchor.constraint(equalTo: view.topAnchor, constant: 200).isActive = true
         myView.heightAnchor.constraint(equalToConstant: 100).isActive = true
         myView.widthAnchor.constraint(equalToConstant: 100).isActive = true
@@ -44,6 +41,9 @@ class ViewController: UIViewController {
 //        myView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
 //        myView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 110).isActive = true
 //        myView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -110).isActive = true
+        
+        
+//        2
         
     }
 
