@@ -39,12 +39,6 @@ class ViewController: UIViewController {
         
         
         
-//        myView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-//        myView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 110).isActive = true
-//        myView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -110).isActive = true
-        
-        
-        
     }
 
 }
