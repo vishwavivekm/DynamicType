@@ -90,8 +90,12 @@ class ViewController: UIViewController {
 //        1
 //        2
 //        3
+<<<<<<< HEAD
 //        4
         
+=======
+//        5
+>>>>>>> kevin
     }
     
     func setClosure(nameBool: Bool, closure: @autoclosure () -> String) -> String {
