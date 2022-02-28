@@ -7,12 +7,56 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+enum Nature {
+    case summer(Int)
+    case winter(Int)
+    case raining(Int)
+    case mansoon(Int)
+    
+    func getVal(nat: Nature) -> String {
+        switch nat {
+        case .winter:
+            return "Winter"
+        case .raining:
+            return "Rainy"
+        case .mansoon:
+            return "Mansoon"
+        case .summer(let deg) where deg > 34 :
+            return "Very Hot"
+        default:
+            return ""
+        }
+    }
+}
 
+class ViewController: UIViewController {
+    
+    
+
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        createView()
+//        createView()
+
+//        let res = setClosure(nameBool: false) {
+//            return getName(name: "Vivek")
+//        }
+        let res = setClosure(nameBool: false, closure: getName(name: "Vivek"))
+        print(res)
+        let clo = { (a: Int, b: Int) -> Int in
+            return a + b
+            
+        }
+        
+        print(clo(10, 20))
+        
+        var sea = Nature.summer(54)
+        print(sea.getVal(nat: sea))
+        
     }
+    
+    var data: [Int] = [1,2,3,4,5,6,7]
 
     func createView() {
         let myView = UIView()
@@ -47,6 +91,51 @@ class ViewController: UIViewController {
 //        2
         
     }
+    
+    func setClosure(nameBool: Bool, closure: @autoclosure () -> String) -> String {
+        print("This is called")
+        if nameBool == true{
+            return closure()
+        }
+        return ""
+    }
+
+    func getName(name: String) -> String {
+        print("This one also is called")
+        return name
+    }
+
+    
 
 }
 
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return data.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCell(withIdentifier: "TempTVCell", for: indexPath) as! TempTVCell
+        cell.textLabel?.text = "\(data[indexPath.row])"
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == data.count - 1 {
+            for _ in 0...20 {
+                let val = (data.last ?? 0) + 1
+                data.append(val)
+//                print(data)
+            }
+            print(data)
+            tableView.reloadData()
+        }
+        
+    }
+    
+    
+}
+
+class TempTVCell: UITableViewCell {
+    
+}
