@@ -90,7 +90,7 @@ class ViewController: UIViewController {
 //        1
 //        2
 //        3
-        
+//        5
     }
     
     func setClosure(nameBool: Bool, closure: @autoclosure () -> String) -> String {
